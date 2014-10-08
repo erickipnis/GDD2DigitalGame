@@ -1,0 +1,124 @@
+fileFormatVersion: 2
+guid: 95698204af80d38478795f1002b75dac
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: InitialSpriteSheet_0
+    21300002: InitialSpriteSheet_1
+    21300004: InitialSpriteSheet_2
+    21300006: InitialSpriteSheet_3
+    21300008: InitialSpriteSheet_4
+    21300010: InitialSpriteSheet_5
+    21300012: InitialSpriteSheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: InitialSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 496
+        width: 252
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 471
+        width: 305
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 514
+        width: 104
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335
+        width: 720
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 720
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 143
+        width: 720
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InitialSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 31
+        width: 72
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
