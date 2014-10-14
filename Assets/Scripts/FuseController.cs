@@ -13,8 +13,19 @@ public class FuseController : MonoBehaviour {
 	void Update () {
 		Vector2 position = fuse.transform.position;
 
-		position.x += .1f;
+		position.x += .05f;
 
 		fuse.transform.position = position;
+
+		
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "TNT")
+		{
+			Destroy(coll.gameObject);
+			Destroy(this.gameObject);
+		}
 	}
 }

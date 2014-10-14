@@ -36,8 +36,13 @@ public class PlayerController : MonoBehaviour
 			position.y -= .1f;
 			player.transform.position = position;
 		}
+	}
 
-
-
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Fuse")
+		{
+			Destroy(coll.gameObject);
+		}
 	}
 }
