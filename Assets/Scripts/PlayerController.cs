@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -43,6 +44,11 @@ public class PlayerController : MonoBehaviour
 		if (coll.gameObject.tag == "Fuse")
 		{
 			Destroy(coll.gameObject);
+
+			//Random score code
+			GameObject score = GameObject.FindGameObjectWithTag("Score");
+			TextMesh scoreTm = (TextMesh)score.GetComponent(typeof(TextMesh));
+			scoreTm.text += 100;
 		}
 	}
 }
