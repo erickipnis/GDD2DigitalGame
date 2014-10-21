@@ -50,5 +50,9 @@ public class PlayerController : MonoBehaviour
 			TextMesh scoreTm = (TextMesh)score.GetComponent(typeof(TextMesh));
 			scoreTm.text += 100;
 		}
+		if(coll.gameObject.tag == "GoUp" || coll.gameObject.tag == "GoDown" || coll.gameObject.tag == "GoLeft" || coll.gameObject.tag == "GoRight")
+		{
+			Physics2D.IgnoreCollision(this.collider2D, coll.gameObject.collider2D, true);
+		}
 	}
 }
