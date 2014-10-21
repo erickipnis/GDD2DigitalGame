@@ -28,5 +28,10 @@ public class FuseController : MonoBehaviour {
 			Destroy(coll.gameObject);
 			Destroy(this.gameObject);
 		}
+		if(coll.gameObject.tag == "Wall")
+		{
+			Physics2D.IgnoreCollision(this.collider2D, coll.gameObject.collider2D, true);
+
+		}
 	}
 }
