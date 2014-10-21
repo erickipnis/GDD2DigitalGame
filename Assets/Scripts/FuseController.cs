@@ -14,7 +14,7 @@ public class FuseController : MonoBehaviour {
 	void Update () {
 		Vector2 position = fuse.transform.position;
 
-		position.x += .02f;
+		position.x += .0195f;
 
 		fuse.transform.position = position;
 
