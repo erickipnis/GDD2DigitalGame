@@ -45,10 +45,33 @@ public class PlayerController : MonoBehaviour
 		{
 			Destroy(coll.gameObject);
 
-			//Random score code
+			//Score code
 			GameObject score = GameObject.FindGameObjectWithTag("Score");
 			TextMesh scoreTm = (TextMesh)score.GetComponent(typeof(TextMesh));
-			scoreTm.text += 100;
+
+			//Get distance between fuse and TNT
+			Vector3 fusePos = coll.gameObject.transform.position;
+			GameObject tnt = GameObject.FindGameObjectWithTag("TNT");
+			Vector3 tntPos = tnt.transform.position;
+			float distance = Vector3.Distance(fusePos, tntPos);
+
+			//Change score based on distance
+			int scoreInt = 0;
+
+			if(distance >= 20)
+			{
+				scoreInt = 500;
+			}
+			else if (distance < 20 && distance > 10)
+			{
+				scoreInt = 250;
+			}
+			else
+			{
+				scoreInt = 100;
+			}
+
+			scoreTm.text = scoreInt.ToString();
 		}
 		if(coll.gameObject.tag == "GoUp" || coll.gameObject.tag == "GoDown" || coll.gameObject.tag == "GoLeft" || coll.gameObject.tag == "GoRight")
 		{
