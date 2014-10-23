@@ -72,6 +72,17 @@ public class PlayerController : MonoBehaviour
 			}
 
 			scoreTm.text = scoreInt.ToString();
+
+			if (Levels.levelNum != Levels.totalLevels)
+			{
+				Levels.levelNum++;
+			}
+			else
+			{
+				Levels.levelNum = 1;
+			}
+
+			Application.LoadLevel("Level" + Levels.levelNum);
 		}
 		if(coll.gameObject.tag == "GoUp" || coll.gameObject.tag == "GoDown" || coll.gameObject.tag == "GoLeft" || coll.gameObject.tag == "GoRight")
 		{
