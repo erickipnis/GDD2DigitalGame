@@ -5,10 +5,15 @@ using System.IO;
 public class PlayerController : MonoBehaviour 
 {
 	GameObject player;
+
+	private Animator anim;
+
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
+
+		anim = player.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -20,22 +25,55 @@ public class PlayerController : MonoBehaviour
 		{
 			position.x -= .1f;
 			player.transform.position = position;
+
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 90))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 90);
+			}
+			
+			anim.enabled = true;
 		} 
 		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
 		{
 			position.x += .1f;
 			player.transform.position = position;
+
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 270))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 270);
+			}
+			
+			anim.enabled = true;
 		}
 		
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
 			position.y += .1f;
 			player.transform.position = position;
+
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 0))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 0);
+			}
+			
+			anim.enabled = true;
+
 		}
 		else if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{
 			position.y -= .1f;
 			player.transform.position = position;
+
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 180))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 180);
+			}
+
+			anim.enabled = true;
+		}
+		else
+		{
+			anim.enabled = false;
 		}
 	}
 
