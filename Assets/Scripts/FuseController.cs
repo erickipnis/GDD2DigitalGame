@@ -43,6 +43,7 @@ public class FuseController : MonoBehaviour {
 		{
 			Destroy(coll.gameObject);
 			Destroy(this.gameObject);
+			Application.LoadLevel("GameOver");
 		}
 		if(coll.gameObject.tag == "Wall" || coll.gameObject.tag == "Door")
 		{

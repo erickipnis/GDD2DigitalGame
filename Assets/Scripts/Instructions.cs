@@ -11,14 +11,14 @@ public class Instructions : MonoBehaviour
 	
 	void OnGUI()
 	{
-		const int buttonWidth = 200;
+		const int buttonWidth = 450;
 		const int buttonHeight = 65;
 		
 		GUI.skin = skin;
 		
-		if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2), Screen.height - 80, buttonWidth, buttonHeight), "PLAY"))
+		if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2), Screen.height - 80, buttonWidth, buttonHeight), "Return to Title"))
 		{
-			Application.LoadLevel("Level1");
+			Application.LoadLevel("TitleScreen");
 		}
 	}
 }
