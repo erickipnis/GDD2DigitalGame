@@ -4,7 +4,7 @@ using System.Collections;
 public class Levels : MonoBehaviour {
 
 	public static int levelNum = 1;
-	public static int totalLevels = 2;
+	public static int totalLevels = 3;
 
 	// Use this for initialization
 	void Start () {

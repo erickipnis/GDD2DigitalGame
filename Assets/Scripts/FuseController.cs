@@ -15,22 +15,67 @@ public class FuseController : MonoBehaviour {
 	void Update () {
 		Vector2 position = fuse.transform.position;
 
-		if(state == 0)
+		if(Application.loadedLevelName == "Level1")
 		{
-			position.y += .0195f;
+			if(state == 0)
+			{
+				position.y += .02f;
+			}
+			if(state == 1)
+			{
+				position.y -= .02f;
+			}
+			if(state == 2)
+			{
+				position.x -= .02f;
+			}
+			if(state == 3)
+			{
+				position.x += .02f;
+			}
 		}
-		if(state == 1)
+
+		if(Application.loadedLevelName == "Level2")
 		{
-			position.y -= .0195f;
+			if(state == 0)
+			{
+				position.y += .0195f;
+			}
+			if(state == 1)
+			{
+				position.y -= .0195f;
+			}
+			if(state == 2)
+			{
+				position.x -= .0195f;
+			}
+			if(state == 3)
+			{
+				position.x += .0195f;
+			}
 		}
-		if(state == 2)
+
+		if(Application.loadedLevelName == "Level3")
 		{
-			position.x -= .0195f;
+			if(state == 0)
+			{
+				position.y += .035f;
+			}
+			if(state == 1)
+			{
+				position.y -= .035f;
+			}
+			if(state == 2)
+			{
+				position.x -= .035f;
+			}
+			if(state == 3)
+			{
+				position.x += .035f;
+			}
+
 		}
-		if(state == 3)
-		{
-			position.x += .0195f;
-		}
+
 			
 		fuse.transform.position = position;
 
