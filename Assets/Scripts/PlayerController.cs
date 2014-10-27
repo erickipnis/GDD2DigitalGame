@@ -21,41 +21,18 @@ public class PlayerController : MonoBehaviour
 	{
 		Vector2 position = player.transform.position;
 
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-		{
-			position.x -= .1f;
-			player.transform.position = position;
-
-			if(player.transform.rotation != Quaternion.Euler(0, 0, 90))
-			{
-				player.transform.rotation = Quaternion.Euler(0, 0, 90);
-			}
-			
-			anim.enabled = true;
-		} 
-		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
-		{
-			position.x += .1f;
-			player.transform.position = position;
-
-			if(player.transform.rotation != Quaternion.Euler(0, 0, 270))
-			{
-				player.transform.rotation = Quaternion.Euler(0, 0, 270);
-			}
-			
-			anim.enabled = true;
-		}
-		
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
 			position.y += .1f;
 			player.transform.position = position;
-
+			
+			//anim.enabled = true;
+			
 			if(player.transform.rotation != Quaternion.Euler(0, 0, 0))
 			{
 				player.transform.rotation = Quaternion.Euler(0, 0, 0);
 			}
-			
+
 			anim.enabled = true;
 
 		}
@@ -71,10 +48,41 @@ public class PlayerController : MonoBehaviour
 
 			anim.enabled = true;
 		}
-		else
+
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
-			anim.enabled = false;
+			position.x -= .1f;
+			player.transform.position = position;
+			
+			//anim.enabled = true;
+			
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 90))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 90);
+			}
+			
+			anim.enabled = true;
+		} 
+		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
+		{
+			position.x += .1f;
+			player.transform.position = position;
+			
+			//anim.enabled = true;
+			
+			if(player.transform.rotation != Quaternion.Euler(0, 0, 270))
+			{
+				player.transform.rotation = Quaternion.Euler(0, 0, 270);
+			}
+			
+			anim.enabled = true;
 		}
+
+		if(Input.anyKey == false)
+		{
+				anim.enabled = false;
+		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
