@@ -20,6 +20,7 @@ public class TitleScreen : MonoBehaviour
 
 		if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2), (2 * Screen.height / 3) - (buttonHeight / 2), buttonWidth, buttonHeight), "START"))
 		{
+			Levels.totalScore=0;
 			Application.LoadLevel("Level1");
 
 		}
