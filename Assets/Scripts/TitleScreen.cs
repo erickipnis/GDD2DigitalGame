@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TitleScreen : MonoBehaviour
 		if (GUI.Button(new Rect(Screen.width / 2 - (buttonWidth / 2), (2 * Screen.height / 3) - (buttonHeight / 2), buttonWidth, buttonHeight), "START"))
 		{
 			Application.LoadLevel("Level1");
+
 		}
 
 		if (GUI.Button(new Rect(Screen.width / 2 - (instrButtonWidth / 2), (2 * Screen.height / 3) - (buttonHeight / 2) + 80, instrButtonWidth, buttonHeight), "HOW TO PLAY"))

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEditor;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -8,12 +9,19 @@ public class PlayerController : MonoBehaviour
 
 	private Animator anim;
 
+	GameObject score;
+
 	// Use this for initialization
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
 
 		anim = player.GetComponent<Animator>();
+
+		score = GameObject.FindGameObjectWithTag("Score");
+
+		DontDestroyOnLoad(score);
+
 	}
 	
 	// Update is called once per frame
@@ -92,7 +100,7 @@ public class PlayerController : MonoBehaviour
 			Destroy(coll.gameObject);
 
 			//Score code
-			GameObject score = GameObject.FindGameObjectWithTag("Score");
+
 			TextMesh scoreTm = (TextMesh)score.GetComponent(typeof(TextMesh));
 
 			//Get distance between fuse and TNT
@@ -101,38 +109,46 @@ public class PlayerController : MonoBehaviour
 			Vector3 tntPos = tnt.transform.position;
 			float distance = Vector3.Distance(fusePos, tntPos);
 
-			//Change score based on distance
-			int scoreInt = 0;
+			if(Application.loadedLevelName == "Level1")
+			{
+				Levels.totalScore = 0;
+			}
+
 
 			if(distance >= 20)
 			{
-				scoreInt = 500;
+				Levels.totalScore+= 500;
 			}
 			else if (distance < 20 && distance > 10)
 			{
-				scoreInt = 250;
+				Levels.totalScore+= 250;
 			}
 			else
 			{
-				scoreInt = 100;
+				Levels.totalScore+= 250;
 			}
 
-			scoreTm.text = scoreInt.ToString();
+			scoreTm.text = Levels.totalScore.ToString();
+
 
 			if (Levels.levelNum != Levels.totalLevels)
 			{
 				Levels.levelNum++;
+
+				Application.LoadLevel("Level" + Levels.levelNum);
 			}
 			else
 			{
+				Application.LoadLevel("Titlescreen");
 				Levels.levelNum = 1;
 			}
 
-			Application.LoadLevel("Level" + Levels.levelNum);
+
 		}
 		if(coll.gameObject.tag == "GoUp" || coll.gameObject.tag == "GoDown" || coll.gameObject.tag == "GoLeft" || coll.gameObject.tag == "GoRight")
 		{
 			Physics2D.IgnoreCollision(this.collider2D, coll.gameObject.collider2D, true);
 		}
 	}
+
 }

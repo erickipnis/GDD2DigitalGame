@@ -6,6 +6,8 @@ public class Levels : MonoBehaviour {
 	public static int levelNum = 1;
 	public static int totalLevels = 3;
 
+	public static int totalScore = 0;
+
 	// Use this for initialization
 	void Start () {
 	
