@@ -75,6 +75,26 @@ public class FuseController : MonoBehaviour {
 			}
 
 		}
+		if(Application.loadedLevelName == "Level4")
+		{
+			if(state == 0)
+			{
+				position.y += .01f;
+			}
+			if(state == 1)
+			{
+				position.y -= .01f;
+			}
+			if(state == 2)
+			{
+				position.x -= .01f;
+			}
+			if(state == 3)
+			{
+				position.x += .01f;
+			}
+			
+		}
 
 			
 		fuse.transform.position = position;

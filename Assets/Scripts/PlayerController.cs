@@ -11,6 +11,14 @@ public class PlayerController : MonoBehaviour
 
 	GameObject score;
 
+	bool unlock = false;
+
+	bool boostItUp = false;
+
+	float speed = 0.1f;
+
+	int addTo = 0;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -31,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
-			position.y += .1f;
+			position.y += speed;
 			player.transform.position = position;
 			
 			//anim.enabled = true;
@@ -46,7 +54,7 @@ public class PlayerController : MonoBehaviour
 		}
 		else if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{
-			position.y -= .1f;
+			position.y -= speed;
 			player.transform.position = position;
 
 			if(player.transform.rotation != Quaternion.Euler(0, 0, 180))
@@ -59,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
-			position.x -= .1f;
+			position.x -= speed;
 			player.transform.position = position;
 			
 			//anim.enabled = true;
@@ -73,7 +81,7 @@ public class PlayerController : MonoBehaviour
 		} 
 		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
 		{
-			position.x += .1f;
+			position.x += speed;
 			player.transform.position = position;
 			
 			//anim.enabled = true;
@@ -89,6 +97,23 @@ public class PlayerController : MonoBehaviour
 		if(Input.anyKey == false)
 		{
 				anim.enabled = false;
+		}
+
+		if(boostItUp)
+		{
+			if(addTo == 250)
+			{
+				boostItUp = false;
+				addTo = 0;
+			}
+			
+			speed = 0.2f;
+			
+			addTo++;
+		}
+		if(boostItUp == false)
+		{
+			speed = 0.1f;
 		}
 
 	}
@@ -148,6 +173,35 @@ public class PlayerController : MonoBehaviour
 		if(coll.gameObject.tag == "GoUp" || coll.gameObject.tag == "GoDown" || coll.gameObject.tag == "GoLeft" || coll.gameObject.tag == "GoRight")
 		{
 			Physics2D.IgnoreCollision(this.collider2D, coll.gameObject.collider2D, true);
+		}
+		if(coll.gameObject.tag == "Locked")
+		{
+			if(unlock)
+			{
+				Destroy(coll.gameObject);
+			}
+
+		}
+		if(coll.gameObject.tag == "Key")
+		{
+			Destroy(coll.gameObject);
+			unlock = true;
+		}
+		if(coll.gameObject.tag == "Booster")
+		{
+			if(boostItUp)
+			{
+				//Physics2D.IgnoreCollision(this.collider2D, coll.gameObject.collider2D, true);
+
+				coll.gameObject.collider.enabled = false;
+			}
+			else
+			{
+				boostItUp = true;
+				Destroy(coll.gameObject);
+			}
+
+			coll.gameObject.collider.enabled = true;
 		}
 	}
 
